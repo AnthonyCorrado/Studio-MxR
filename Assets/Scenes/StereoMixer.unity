@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 91142618}
   - component: {fileID: 91142617}
   - component: {fileID: 91142620}
+  - component: {fileID: 91142621}
   m_Layer: 0
   m_Name: Mixer3D
   m_TagString: Untagged
@@ -212,7 +213,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e585f0318948e45932d9d54a622d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mixer3D: {fileID: 0}
+  width: 1
+  height: 0.35
+  depth: 1
+  forwardPosition: 2
+  flipped: 1
+--- !u!114 &91142621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91142615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b10bdd5b3611c439a827d38c84f77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &288580896 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013535415816, guid: b2db04283121ca74495c2ee000fb4243,
@@ -552,6 +568,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1893817495}
+  - component: {fileID: 1893817496}
   m_Layer: 0
   m_Name: StudioMxR
   m_TagString: Untagged
@@ -575,6 +592,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893817496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1893817494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7ab975e8220644fab8123b8ad69fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer3DModel: {fileID: 91142620}
+  mixer3DView: {fileID: 91142621}
+  mixer3DController: {fileID: 0}
 --- !u!1001 &2042598732
 Prefab:
   m_ObjectHideFlags: 0

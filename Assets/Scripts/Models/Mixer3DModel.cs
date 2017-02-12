@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Mixer3DModel : MonoBehaviour {
 
-    public Mixer3DModel Mixer3D;
-	// Use this for initialization
+    public float width;
+    public float height;
+    public float depth;
+    public float forwardPosition;
+    public bool flipped;
 
+    // Use this for initialization
     void Start () {
 		
 	}
@@ -15,4 +19,9 @@ public class Mixer3DModel : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public Mixer3D GetMixerProperties()
+    {
+        return new Mixer3D(width, height, depth, forwardPosition, flipped);
+    }
 }
