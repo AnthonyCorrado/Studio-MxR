@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TrackState
+public class Track
 {
-    public TrackState(float volume, float pan, bool muted, bool soloed)
+    public Track(float volume, float pan, bool muted, bool soloed)
     {
         this.volume = volume;
         this.pan = pan;
@@ -24,7 +24,6 @@ public class TrackState
         {
             volume = value;
         }
-
     }
 
     public float Pan
