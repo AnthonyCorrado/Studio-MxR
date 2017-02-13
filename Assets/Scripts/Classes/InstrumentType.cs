@@ -12,7 +12,6 @@ public class InstrumentType
 
     public InstrumentType(string name)
     {
-        Debug.Log("made it create");
         this.name = name;
         frequencyMean = getFreqMean(name);
         defaultSize = getDefaultSize(name);
@@ -80,6 +79,10 @@ public class InstrumentType
         {
             return 5000;
         }
+        else if (instrumentType == "Drums")
+        {
+            return 100;
+        }
         else
         {
             return 0;
@@ -91,7 +94,11 @@ public class InstrumentType
     {
         if (instrumentType == "AcousticGuitar")
         {
-            return 0.2f;
+            return 0.3f;
+        }
+        else if (instrumentType == "Drums")
+        {
+            return 0.6f;
         }
         else
         {
@@ -101,11 +108,13 @@ public class InstrumentType
 
     private Color getDefaultColor(string instrumentType)
     {
-        Debug.Log("made it default color with a value of: " + instrumentType);
         if (instrumentType == "AcousticGuitar")
         {
-            Debug.Log("i returned red");
             return Color.red;
+        }
+        else if (instrumentType == "Drums")
+        {
+            return Color.green;
         }
         else
         {

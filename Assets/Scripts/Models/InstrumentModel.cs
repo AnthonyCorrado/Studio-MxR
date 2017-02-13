@@ -5,6 +5,7 @@ using UnityEngine;
 public class InstrumentModel : StudioElement {
 
     public string instrumentName;
+    private InstrumentController controller;
 
     public enum InstroTypes
     {
@@ -20,9 +21,18 @@ public class InstrumentModel : StudioElement {
 
     private InstrumentType instrumentType;
 
+    private Instrument instrument;
+
     // Use this for initialization
     void Start () {
+        controller = GetComponent<InstrumentController>();
+
+        // creates and auto fills default values as needed
         instrumentType = new InstrumentType(type.ToString());
+        color = instrumentType.DefaultColor;
+        instrument = new Instrument(instrumentName, instrumentType, color, clip);
+
+        controller.SetInstrumentProperties(instrument);
     }
 	
 	// Update is called once per frame
@@ -30,8 +40,16 @@ public class InstrumentModel : StudioElement {
 		
 	}
 
-    public Instrument GetInstrumentProperties ()
+    //private Instrument initInstrumentProperties ()
+    //{
+    //    color = instrumentType.DefaultColor;
+    //    instrument = new Instrument(instrumentName, instrumentType, color, clip);
+    //    return instrument;
+    //}
+
+    public Instrument GetCurrentInstrumentValue()
     {
-        return new Instrument(instrumentName, instrumentType, color, clip);
+        Debug.Log("what is instro???: " + instrument);
+        return instrument;
     }
 }

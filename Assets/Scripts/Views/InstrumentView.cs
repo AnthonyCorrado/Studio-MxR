@@ -4,27 +4,33 @@ using UnityEngine;
 
 public class InstrumentView : StudioElement {
 
-    private Instrument instrumentProperties;
+    private InstrumentController controller;
 
-	// Use this for initialization
-	void Start () {
-        instrumentProperties = app.instrumentModel.GetInstrumentProperties();
-	}
+    private Renderer rend;
+    private Color color;
+
+    // Use this for initialization
+    void Start () {
+        controller = GetComponent<InstrumentController>();
+        rend = GetComponent<Renderer>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    private void setInstrumentProperties(Instrument properties)
+    public void UpdateInstrumentProperties(Transform instrumentTransform, Instrument instrument)
     {
-        
-        //transform.localScale = new Vector3(properties.Width, properties.Height, properties.Depth);
-        //transform.position = new Vector3(0, 0, properties.ForwardPosition);
+        transform.localScale = instrumentTransform.localScale;
+        transform.localPosition = instrumentTransform.localPosition;
 
-        //if (properties.Flipped)
-        //{
-        //    transform.Rotate(Vector3.right, 90);
-        //}
+        rend.material.color = instrument.Color;
+    }
+
+    // TODO subscribe this to a model action
+    private void SetInstrumentMaterialColor(Color color)
+    {
+        rend.material.color = color;
     }
 }

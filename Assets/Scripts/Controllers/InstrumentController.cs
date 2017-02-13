@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InstrumentController : StudioElement {
 
-    private Instrument instrumentProperties;
+    private InstrumentModel model;
+    private InstrumentView view;
 
     // Use this for initialization
     void Start () {
-        instrumentProperties = app.instrumentModel.GetInstrumentProperties();
-        SetInstrumentProperties(instrumentProperties);
+        view = GetComponent<InstrumentView>();
+        model = GetComponent<InstrumentModel>();
     }
 	
 	// Update is called once per frame
@@ -17,8 +18,27 @@ public class InstrumentController : StudioElement {
 		
 	}
 
-    private void SetInstrumentProperties(Instrument properties)
+    public void SetInstrumentProperties(Instrument properties)
     {
+        Transform instrumentTransform = transform;
+        float scale = properties.Type.DefaultSize;
+        // takes frequency mean and scales it to match mixer grid. Then applies half of the parent container to ensure proper placement
+        float frequencyPosition = (properties.Type.FrequencyMean / 20000f) - 0.5f;
 
+        Vector3 parentScale = transform.parent.localScale;
+
+        // counters scaling issue when parented
+        Vector3 adjustedScale = new Vector3((0.5f / parentScale.x) * scale, 0.5f / parentScale.y * scale, 0.5f / parentScale.z * scale);
+
+        instrumentTransform.localScale = adjustedScale;
+        instrumentTransform.localPosition = new Vector3(transform.position.x, frequencyPosition, 0);
+
+        view.UpdateInstrumentProperties(instrumentTransform, properties);
+    }
+
+    public Color GetInstrumentColor()
+    {
+        Debug.Log("app instro: " + model.GetCurrentInstrumentValue());
+        return model.GetCurrentInstrumentValue().Color;
     }
 }
