@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Mixer3DView : StudioElement {
 
-    private Mixer3D mixerProperties;
-
 	// Use this for initialization
 	void Start () {
-        mixerProperties = app.mixer3DModel.GetMixerProperties();
-        setMixerProperties(mixerProperties);
+
 	}
 	
 	// Update is called once per frame
@@ -17,12 +14,12 @@ public class Mixer3DView : StudioElement {
 		
 	}
 
-    private void setMixerProperties(Mixer3D properties)
+    public void UpdateMixer3DProperties(Transform mixerTransform, bool flipped)
     {
-        transform.localScale = new Vector3(properties.Width, properties.Height, properties.Depth);
-        transform.position = new Vector3(0, 0, properties.ForwardPosition);
+        transform.localScale = mixerTransform.localScale;
+        transform.position = mixerTransform.position;
 
-        if (properties.Flipped)
+        if (flipped)
         {
             transform.Rotate(Vector3.right, 90);
         }

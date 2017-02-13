@@ -6,20 +6,20 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Transparent
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _NORMALMAP
+  m_Name: InsideOut
+  m_Shader: {fileID: 4800000, guid: f1f3948b20c230044bda31b620ddd37f, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _NORMALMAP _USEAMBIENT_ON _USEEMISSIONCOLOR_ON
+    _USEMAINCOLOR_ON _USEMAINTEX_ON
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
     - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 45a9603a91a8a47448c7f031e62d5a82, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -47,9 +47,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _MainTex
+        name: _EmissionTex
       second:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: aa317337a7f6423429d9eb09b302d670, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -72,7 +78,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
+        name: _BlendOp
+      second: 0
+    - first:
         name: _BumpScale
+      second: 1
+    - first:
+        name: _ColorWriteMask
+      second: 15
+    - first:
+        name: _Cull
       second: 1
     - first:
         name: _Cutoff
@@ -93,6 +108,12 @@ Material:
         name: _GlossyReflections
       second: 1
     - first:
+        name: _MainTex_OFFSET
+      second: 0
+    - first:
+        name: _MainTex_SCALE
+      second: 0
+    - first:
         name: _Metallic
       second: 0
     - first:
@@ -105,10 +126,19 @@ Material:
         name: _Parallax
       second: 0.02
     - first:
+        name: _Shade4
+      second: 0
+    - first:
         name: _SmoothnessTextureChannel
       second: 0
     - first:
         name: _SpecularHighlights
+      second: 1
+    - first:
+        name: _SpecularPower
+      second: 10
+    - first:
+        name: _SpecularScale
       second: 1
     - first:
         name: _SrcBlend
@@ -117,12 +147,60 @@ Material:
         name: _UVSec
       second: 0
     - first:
+        name: _UseAmbient
+      second: 1
+    - first:
+        name: _UseBumpMap
+      second: 0
+    - first:
+        name: _UseDiffuse
+      second: 0
+    - first:
+        name: _UseEmissionColor
+      second: 1
+    - first:
+        name: _UseEmissionTex
+      second: 0
+    - first:
+        name: _UseMainColor
+      second: 1
+    - first:
+        name: _UseMainTex
+      second: 1
+    - first:
+        name: _UseOcclusionMap
+      second: 0
+    - first:
+        name: _UseSpecular
+      second: 0
+    - first:
+        name: _UseVertexColor
+      second: 0
+    - first:
+        name: _WireThickness
+      second: 100
+    - first:
+        name: _ZTest
+      second: 4
+    - first:
         name: _ZWrite
       second: 0
     m_Colors:
     - first:
+        name: _BaseColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 0.547}
+      second: {r: 0.22794122, g: 0.74442214, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 0, g: 0.16328597, b: 0.20588237, a: 1}
+    - first:
+        name: _SpecularColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - first:
+        name: _TextureScaleOffset
+      second: {r: 1, g: 1, b: 0, a: 0}
+    - first:
+        name: _WireColor
+      second: {r: 1, g: 1, b: 1, a: 1}

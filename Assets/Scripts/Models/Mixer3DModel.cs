@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mixer3DModel : MonoBehaviour {
+public class Mixer3DModel : StudioElement {
 
     public float width;
     public float height;

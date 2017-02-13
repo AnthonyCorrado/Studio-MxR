@@ -20,6 +20,10 @@ public class AppManager : MonoBehaviour
     public Mixer3DView mixer3DView;
     public Mixer3DController mixer3DController;
 
+    public InstrumentModel instrumentModel;
+    public InstrumentView instrumentView;
+    public InstrumentController instrumentController;
+
 	// Use this for initialization
 	void Start () {
 		
