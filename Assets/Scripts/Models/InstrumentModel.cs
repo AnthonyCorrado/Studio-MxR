@@ -31,7 +31,6 @@ public class InstrumentModel : StudioElement {
         instrumentType = new InstrumentType(type.ToString());
         color = instrumentType.DefaultColor;
         instrument = new Instrument(instrumentName, instrumentType, color, clip);
-
         controller.SetInstrumentProperties(instrument);
     }
 	

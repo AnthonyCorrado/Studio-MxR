@@ -8,7 +8,7 @@ public class InstrumentController : StudioElement {
     private InstrumentView view;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         view = GetComponent<InstrumentView>();
         model = GetComponent<InstrumentModel>();
     }
@@ -20,6 +20,7 @@ public class InstrumentController : StudioElement {
 
     public void SetInstrumentProperties(Instrument properties)
     {
+        Debug.Log("controller SIP");
         Transform instrumentTransform = transform;
         float scale = properties.Type.DefaultSize;
         // takes frequency mean and scales it to match mixer grid. Then applies half of the parent container to ensure proper placement
@@ -32,7 +33,7 @@ public class InstrumentController : StudioElement {
 
         instrumentTransform.localScale = adjustedScale;
         instrumentTransform.localPosition = new Vector3(transform.position.x, frequencyPosition, 0);
-
+        Debug.Log("WTF???: " + view);
         view.UpdateInstrumentProperties(instrumentTransform, properties);
     }
 
