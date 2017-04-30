@@ -12,7 +12,7 @@ public class Mixer3DModel : StudioElement {
 
     // Use this for initialization
     void Start () {
-		
+
 	}
 	
 	// Update is called once per frame

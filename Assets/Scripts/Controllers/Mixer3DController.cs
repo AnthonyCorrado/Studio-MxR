@@ -5,10 +5,15 @@ using UnityEngine;
 public class Mixer3DController : StudioElement {
 
     private Mixer3D mixerProperties;
+    private Mixer3DModel model;
+    private Mixer3DView view;
 
     // Use this for initialization
-    void Start () {
-        mixerProperties = app.mixer3DModel.GetMixerProperties();
+    void Awake () {
+        model = GetComponent<Mixer3DModel>();
+        view = GetComponent<Mixer3DView>();
+
+        mixerProperties = model.GetMixerProperties();
         setMixerProperties(mixerProperties);
     }
 	
@@ -26,6 +31,6 @@ public class Mixer3DController : StudioElement {
         mixerTransform.position = new Vector3(0, 0, properties.ForwardPosition);
         bool flipped = properties.Flipped;
 
-        app.mixer3DView.UpdateMixer3DProperties(mixerTransform, flipped);
+        view.UpdateMixer3DProperties(mixerTransform, flipped);
     }
 }

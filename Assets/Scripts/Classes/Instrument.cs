@@ -62,8 +62,111 @@ public class Instrument
         }
     }
 
+    public State State
+    {
+        get
+        {
+            return state;
+        }
+        set
+        {
+            state = value;
+        }
+    }
+
     private string name;
     private InstrumentType type;
     private Color color;
     private AudioClip clip;
+
+    private State state;
+}
+
+[System.Serializable]
+public class State
+{
+    public State()
+    {
+        volume = 1;
+        pan = 0;
+        mute = false;
+        spatialize = false;
+        spatialBlend = 0;
+    }
+
+    public State(float volume, float pan, bool mute, bool spatialize, float spatialBlend)
+    {
+        this.volume = volume;
+        this.pan = pan;
+        this.mute = mute;
+        this.spatialize = spatialize;
+        this.spatialBlend = spatialBlend;
+    }
+
+    //Accessor Functions
+    public float Volume
+    {
+        get
+        {
+            return volume;
+        }
+        set
+        {
+            volume = value;
+        }
+    }
+
+    public float Pan
+    {
+        get
+        {
+            return pan;
+        }
+        set
+        {
+            pan = value;
+        }
+    }
+
+    public bool Mute
+    {
+        get
+        {
+            return mute;
+        }
+        set
+        {
+            mute = value;
+        }
+    }
+
+    public bool Spatialize
+    {
+        get
+        {
+            return spatialize;
+        }
+        set
+        {
+            spatialize = value;
+        }
+    }
+
+    public float SpatialBlend
+    {
+        get
+        {
+            return spatialBlend;
+        }
+        set
+        {
+            spatialBlend = value;
+        }
+    }
+
+    private float volume;
+    private float pan;
+    private bool mute;
+    private bool spatialize;
+    private float spatialBlend;
 }
